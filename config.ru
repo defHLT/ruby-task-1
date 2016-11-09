@@ -1,7 +1,6 @@
-require './frank'
+require './app'
 require 'rack/contrib'
 require 'sidekiq/web'
 
-use Rack::PostBodyContentTypeParser
+#use Rack::PostBodyContentTypeParser
 run Rack::URLMap.new('/' => App, '/sidekiq' => Sidekiq::Web)
-run Sinatra::Application
